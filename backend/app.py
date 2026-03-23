@@ -162,7 +162,7 @@ def delete_all_candidates():
 
 @app.route("/")
 def home():
-    return send_from_directory(FRONTEND_DIR, "dashboard.html")
+    return send_from_directory(FRONTEND_DIR, "index.html")
 
 @app.route("/<path:path>")
 def static_files(path):
