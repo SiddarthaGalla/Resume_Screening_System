@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: resume-app
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
+    runtime: python-3.10.13
