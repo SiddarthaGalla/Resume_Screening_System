@@ -159,6 +159,7 @@ def delete_all_candidates():
     return jsonify({"message":"All candidates deleted"})
 
 
+
 @app.route("/")
 def home():
     return send_from_directory(FRONTEND_DIR, "dashboard.html")
