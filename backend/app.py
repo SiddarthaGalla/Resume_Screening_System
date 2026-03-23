@@ -169,9 +169,6 @@ def static_files(path):
 
 from flask import send_from_directory
 
-@app.route("/")
-def home():
-    return send_from_directory("../frontend", "dashboard.html")
 
 # ===== RUN SERVER =====
 if __name__ == "__main__":
