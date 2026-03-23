@@ -18,7 +18,10 @@ UPLOAD_FOLDER=os.path.join(BASE_DIR,"uploads")
 os.makedirs(UPLOAD_FOLDER,exist_ok=True)
 
 # ===== MONGODB ATLAS CONNECTION =====
-client=MongoClient("mongodb+srv://resumeadmin:resume123@resumecluster.sb9fvyw.mongodb.net/?appName=ResumeCluster")
+import os
+from pymongo import MongoClient
+
+client = MongoClient(os.environ.get("MONGO_URI"))
 db=client["resume_screening_system"]
 users_collection=db["users"]
 
