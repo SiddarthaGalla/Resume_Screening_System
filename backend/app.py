@@ -12,6 +12,14 @@ from skill_extractor import extract_skills
 app=Flask(__name__)
 CORS(app)
 
+from flask import Flask, send_from_directory
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, "..", "frontend")
+
+app = Flask(__name__, static_folder=FRONTEND_DIR)
+
 # ===== UPLOAD FOLDER SETUP =====
 BASE_DIR=os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER=os.path.join(BASE_DIR,"uploads")
@@ -149,6 +157,15 @@ def delete_candidate(email):
 def delete_all_candidates():
     candidates_collection.delete_many({})
     return jsonify({"message":"All candidates deleted"})
+
+
+@app.route("/")
+def home():
+    return send_from_directory(FRONTEND_DIR, "dashboard.html")
+
+@app.route("/<path:path>")
+def static_files(path):
+    return send_from_directory(FRONTEND_DIR, path)
 
 from flask import send_from_directory
 
