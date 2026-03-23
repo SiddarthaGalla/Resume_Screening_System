@@ -131,7 +131,7 @@ window.location.href="login.html"
 async function loginUser(){
 const email=document.getElementById("loginEmail").value
 const password=document.getElementById("loginPassword").value
-const response=await fetch("https://resume-screening-system-fpnd.onrender.com/login",{
+const response=await fetch("https://resume-screening-system-xxq5.onrender.com/login",{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
@@ -164,7 +164,7 @@ for(let i=0;i<files.length;i++){
 formData.append("resumes",files[i])
 }
 formData.append("job",job)
-const response=await fetch("https://resume-screening-system-fpnd.onrender.com/upload-resumes",{
+const response=await fetch("https://resume-screening-system-xxq5.onrender.com/upload-resumes",{
 method:"POST",
 body:formData
 })
@@ -201,7 +201,7 @@ formData.append("resumes",files[i])
 }
 formData.append("job",job)
 try{
-const response=await fetch("https://resume-screening-system-fpnd.onrender.com/screen",{
+const response=await fetch("https://resume-screening-system-xxq5.onrender.com/screen",{
 method:"POST",
 body:formData
 })
@@ -549,7 +549,7 @@ document.getElementById("rankingResults").innerHTML=table
 async function loadCandidates(){
 try{
 
-const response = await fetch("https://resume-screening-system-fpnd.onrender.com/candidates?nocache="+new Date().getTime())
+const response = await fetch("https://resume-screening-system-xxq5.onrender.com/candidates?nocache="+new Date().getTime())
 const data = await response.json()
 
 console.log("API DATA:", data)
@@ -568,7 +568,7 @@ console.error("Error:", error)
 /* ===== DELETE SINGLE CANDIDATE ===== */
 async function deleteCandidate(email){
 if(!confirm("Delete this candidate?")) return
-await fetch(`https://resume-screening-system-fpnd.onrender.com/delete-candidate/${email}`,{
+await fetch(`https://resume-screening-system-xxq5.onrender.com/delete-candidate/${email}`,{
 method:"DELETE"
 })
 loadCandidates()
@@ -577,7 +577,7 @@ loadCandidates()
 /* ===== DELETE ALL CANDIDATES ===== */
 async function deleteAllCandidates(){
 if(!confirm("Delete ALL candidates?")) return
-await fetch("https://resume-screening-system-fpnd.onrender.com/delete-all-candidates",{
+await fetch("https://resume-screening-system-xxq5.onrender.com/delete-all-candidates",{
 method:"DELETE"
 })
 loadCandidates()
