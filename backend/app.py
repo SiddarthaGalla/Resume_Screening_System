@@ -150,13 +150,16 @@ def delete_all_candidates():
     candidates_collection.delete_many({})
     return jsonify({"message":"All candidates deleted"})
 
-# ===== RUN SERVER =====
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
-
-
 from flask import send_from_directory
 
 @app.route("/")
 def home():
     return send_from_directory("../frontend", "dashboard.html")
+
+# ===== RUN SERVER =====
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
+
+
