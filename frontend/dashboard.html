@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruiter Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ===== DASHBOARD CONTAINER ===== -->
+<div class="dashboard">
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+<h2 class="logo">ResumeAI</h2>
+
+<ul class="menu">
+<li class="active">Dashboard</li>
+<li>Upload Resumes</li>
+<li>Candidate Ranking</li>
+<li onclick="logoutUser()">Logout</li>
+</ul>
+</div>
+
+<!-- ===== MAIN DASHBOARD AREA ===== -->
+<div class="main">
+
+<!-- ===== DASHBOARD HEADER ===== -->
+<div class="dashboard-header">
+<h1>Recruiter Dashboard</h1>
+<p>AI powered resume screening system</p>
+</div>
+
+<!-- ===== STATISTICS CARDS ===== -->
+<div class="dashboard-cards">
+
+<div class="card-box">
+<h3>Total Resumes</h3>
+<p id="totalResumes">0</p>
+</div>
+
+<div class="card-box">
+<h3>Processed Resumes</h3>
+<p id="processed">0</p>
+</div>
+
+<div class="card-box">
+<h3>Shortlisted Candidates</h3>
+<p id="shortlisted">0</p>
+</div>
+
+</div>
+
+<!-- ===== JOB DESCRIPTION SECTION ===== -->
+<div class="glass-section">
+
+<h2>Job Description</h2>
+
+<textarea id="jobDesc" placeholder="Paste job description for the role here..."></textarea>
+
+</div>
+
+<!-- ===== CANDIDATE RESULTS ===== -->
+<div class="glass-section">
+<h2>Screened Candidates</h2>
+<button class="delete-all-btn" onclick="deleteAllCandidates()">Delete All Candidates</button>
+<table id="candidateTable">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Skills</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+
+<!-- ===== RESUME UPLOAD SECTION ===== -->
+<div class="glass-section">
+
+<h2>Upload Candidate Resumes</h2>
+
+<div class="upload-box">
+<input type="file" id="resumeUpload" multiple accept=".pdf,.docx,.txt">
+<p>Drag & Drop resumes here or click to upload</p>
+</div>
+
+<button class="ai-button" onclick="startScreening()">Start AI Screening</button>
+
+</div>
+<!-- ===== CANDIDATE SORT CONTROLS ===== -->
+<div class="ranking-controls">
+<label>Sort Candidates By:</label>
+<select id="sortCriteria" onchange="sortCandidates()">
+<option value="default">Default (AI Ranking)</option>
+<option value="score">Score</option>
+<option value="cgpa">CGPA</option>
+<option value="experience">Experience</option>
+<option value="projects">Projects</option>
+</select>
+</div>
+
+<!-- ===== CANDIDATE TABLE CONTAINER ===== -->
+<div id="rankingResults"></div>
+<!-- ===== CANDIDATE RANKING SECTION ===== -->
+<div class="glass-section">
+<h2>Candidate Ranking Results</h2>
+<div class="table-container">
+<table class="ranking-table">
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Extracted Skill</th>
+<th>Match Score</th>
+<th>Rank</th>
+</tr>
+</thead>
+<tbody id="rankingTableBody"></tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

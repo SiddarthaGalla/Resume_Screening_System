@@ -1,0 +1,775 @@
+html{
+scroll-behavior:smooth;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+color:white;
+background:#0f172a;
+overflow-x:hidden;
+}
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+background:#0f172a;
+}
+
+/* BACKGROUND ANIMATION */
+
+.background-animation{
+
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(270deg,#0f172a,#1e3a8a,#1e293b);
+background-size:600% 600%;
+animation:bgMove 12s infinite;
+z-index:-1;
+
+}
+
+@keyframes bgMove{
+
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+
+}
+
+/* NAVBAR */
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+
+}
+
+.logo{
+
+font-size:22px;
+font-weight:600;
+
+}
+
+.nav-links{
+
+display:flex;
+gap:30px;
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:white;
+font-weight:500;
+
+}
+
+.nav-buttons button{
+
+margin-left:10px;
+padding:8px 18px;
+border-radius:8px;
+border:none;
+cursor:pointer;
+
+}
+
+.login-btn{
+
+background:transparent;
+border:1px solid white;
+color:white;
+
+}
+
+.signup-btn{
+
+background:#3b82f6;
+color:white;
+
+}
+
+/* HERO */
+
+.hero{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:100px 80px;
+gap:60px;
+
+}
+
+.hero-left{
+
+max-width:500px;
+
+}
+
+.hero-left h1{
+
+font-size:48px;
+margin-bottom:20px;
+
+}
+
+.hero-left p{
+
+font-size:18px;
+line-height:1.6;
+margin-bottom:30px;
+
+}
+
+.start-btn{
+
+padding:12px 30px;
+background:#3b82f6;
+border:none;
+border-radius:8px;
+color:white;
+font-size:16px;
+cursor:pointer;
+
+}
+
+/* FLOATING CARDS */
+
+.hero-right{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.card{
+
+padding:20px 30px;
+border-radius:12px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+animation:float 4s infinite ease-in-out;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+100%{transform:translateY(0)}
+
+}
+
+/* FEATURES */
+
+.features{
+
+padding:80px 60px;
+text-align:center;
+
+}
+
+.features h2{
+
+margin-bottom:40px;
+font-size:32px;
+
+}
+
+.feature-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+
+}
+
+.feature{
+
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+
+}
+
+.feature:hover{
+
+transform:translateY(-8px);
+
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media(max-width:900px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+padding:20px;
+}
+
+.logo{
+font-size:20px;
+}
+
+.nav-links{
+display:none;
+}
+
+.nav-buttons{
+display:flex;
+gap:10px;
+justify-content:center;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding:60px 25px;
+}
+
+.hero-left h1{
+font-size:32px;
+}
+
+.hero-left p{
+font-size:16px;
+line-height:1.6;
+}
+
+.hero-right{
+margin-top:25px;
+align-items:center;
+}
+
+.features{
+padding:50px 25px;
+}
+}
+
+
+/* SIGN UP*/
+.auth-container{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.auth-card{
+width:420px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+padding:45px;
+border-radius:16px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+text-align:center;
+}
+
+.auth-card h2{
+font-size:26px;
+margin-bottom:5px;
+}
+
+.auth-subtitle{
+font-size:14px;
+opacity:0.8;
+margin-bottom:30px;
+}
+
+.input-box{
+position:relative;
+margin-bottom:28px;
+}
+
+.input-box input{
+width:100%;
+padding:14px 10px;
+border:none;
+border-bottom:2px solid rgba(255,255,255,0.4);
+background:transparent;
+color:white;
+font-size:15px;
+outline:none;
+}
+
+.input-box label{
+position:absolute;
+left:10px;
+top:14px;
+color:rgba(255,255,255,0.7);
+font-size:14px;
+transition:0.3s;
+pointer-events:none;
+}
+
+.input-box input:focus~label,
+.input-box input:not(:placeholder-shown)~label{
+top:-10px;
+font-size:12px;
+color:#3b82f6;
+}
+
+.input-box.active label{
+top:-10px;
+font-size:12px;
+color:#3b82f6;
+}
+
+.password-box{
+position:relative;
+}
+
+.toggle-password{
+position:absolute;
+right:5px;
+top:12px;
+cursor:pointer;
+font-size:16px;
+}
+
+.auth-btn{
+width:100%;
+padding:13px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+background:linear-gradient(135deg,#3b82f6,#6366f1);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.auth-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(59,130,246,0.4);
+}
+
+.auth-switch{
+margin-top:18px;
+font-size:14px;
+}
+
+.auth-switch a{
+color:#3b82f6;
+text-decoration:none;
+}
+
+@media(max-width:768px){
+.auth-card{
+width:100%;
+max-width:380px;
+padding:35px;
+}
+}
+
+input:-webkit-autofill{
+-webkit-box-shadow:0 0 0 1000px transparent inset !important;
+-webkit-text-fill-color:white !important;
+transition:background-color 5000s ease-in-out 0s;
+}
+
+
+/* Animation Middle */
+.resume-animation{
+display:flex;
+justify-content:center;
+align-items:center;
+width:420px;
+height:320px;
+margin:auto;
+}
+
+.resume-animation lottie-player{
+width:100%;
+height:100%;
+}
+
+/* Mobile responsiveness */
+
+@media(max-width:900px){
+
+.resume-animation{
+width:280px;
+height:220px;
+margin-top:30px;
+}
+
+}
+
+/*Features and About*/
+.about-section{
+padding:80px 60px;
+text-align:center;
+color:white;
+}
+
+.about-section h2{
+margin-bottom:20px;
+font-size:32px;
+}
+
+.about-section p{
+max-width:700px;
+margin:auto;
+margin-bottom:40px;
+line-height:1.6;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.about-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:12px;
+backdrop-filter:blur(10px);
+}
+
+/*Workflow*/
+.workflow-section{
+padding:80px 60px;
+text-align:center;
+color:white;
+}
+
+.workflow-section h2{
+font-size:32px;
+margin-bottom:50px;
+}
+
+.workflow-container{
+display:flex;
+align-items:center;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.workflow-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:12px;
+width:220px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.workflow-card:hover{
+transform:translateY(-8px);
+}
+
+.workflow-icon{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.workflow-arrow{
+font-size:28px;
+color:#3b82f6;
+}
+
+@media(max-width:900px){
+
+.workflow-container{
+flex-direction:column;
+}
+
+.workflow-arrow{
+transform:rotate(90deg);
+}
+}
+
+/*Tech Shack*/
+.tech-section{
+padding:80px 60px;
+text-align:center;
+color:white;
+}
+
+.tech-section h2{
+font-size:32px;
+margin-bottom:50px;
+}
+
+.tech-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.tech-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:12px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.tech-card:hover{
+transform:translateY(-8px);
+}
+
+
+/* ===== PREMIUM DASHBOARD LAYOUT ===== */
+.dashboard{display:flex;height:100vh;font-family:'Poppins',sans-serif}
+
+/* ===== SIDEBAR ===== */
+.sidebar{width:230px;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);color:white;padding:30px}
+.logo{font-size:22px;margin-bottom:40px}
+.menu{list-style:none;padding:0}
+.menu li{padding:12px 10px;border-radius:8px;cursor:pointer;transition:0.3s}
+.menu li:hover{background:#1f2937}
+.menu .active{background:#3b82f6}
+
+/* ===== MAIN AREA ===== */
+.main{flex:1;padding:40px;background:#0f172a;color:white;overflow-y:auto}
+
+/* ===== HEADER ===== */
+.dashboard-header h1{font-size:28px}
+.dashboard-header p{opacity:0.7;margin-top:5px}
+
+/* ===== STATISTICS CARDS ===== */
+.dashboard-cards{display:flex;gap:25px;margin:35px 0}
+.card-box{flex:1;background:linear-gradient(145deg,#1e293b,#0f172a);padding:25px;border-radius:14px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.4);transition:0.3s}
+.card-box:hover{transform:translateY(-6px)}
+.card-box h3{font-size:16px;opacity:0.8}
+.card-box p{font-size:28px;margin-top:10px;color:#3b82f6}
+
+/* ===== GLASS SECTIONS ===== */
+.glass-section{margin-top:30px;background:rgba(255,255,255,0.05);padding:30px;border-radius:14px;backdrop-filter:blur(10px);box-shadow:0 10px 20px rgba(0,0,0,0.4)}
+.glass-section h2{margin-bottom:15px}
+
+/* ===== JOB DESCRIPTION TEXTAREA ===== */
+.glass-section textarea{width:100%;height:140px;padding:15px;border-radius:10px;border:none;background:#1e293b;color:white;font-size:14px;outline:none}
+
+/* ===== UPLOAD BOX ===== */
+.upload-box{margin-top:10px;border:2px dashed #3b82f6;border-radius:12px;padding:35px;text-align:center;background:#1e293b;cursor:pointer;transition:0.3s}
+.upload-box:hover{background:#111827}
+.upload-box input{display:block;margin:auto;margin-bottom:10px}
+
+/* ===== AI BUTTON ===== */
+.ai-button{margin-top:20px;padding:14px 28px;border:none;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#6366f1);color:white;font-size:15px;cursor:pointer;transition:0.3s}
+.ai-button:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(59,130,246,0.5)}
+
+/* ===== MOBILE RESPONSIVE ===== */
+/* ===== MOBILE RESPONSIVE DASHBOARD ===== */
+@media(max-width:900px){
+.dashboard{flex-direction:column}
+.sidebar{
+width:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:20px
+}
+.logo{
+margin-bottom:15px
+}
+.menu{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px
+}
+.menu li{
+padding:8px 12px;
+font-size:14px
+}
+.main{
+padding:25px
+}
+.dashboard-cards{
+flex-direction:column;
+gap:15px
+}
+.card-box{
+width:100%
+}
+.glass-section{
+padding:20px
+}
+.upload-box{
+padding:25px
+}
+.ai-button{
+width:100%
+}
+}
+/* ===== CANDIDATE RANKING TABLE ===== */
+.table-container{overflow-x:auto;margin-top:15px}
+.ranking-table{width:100%;border-collapse:collapse;background:#1e293b;border-radius:10px;overflow:hidden}
+.ranking-table th{background:#3b82f6;color:white;text-align:left;padding:12px;font-weight:500}
+.ranking-table td{padding:12px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.ranking-table tr:hover{background:#111827}
+/* ===== CANDIDATE RANKING TABLE ===== */
+
+.ranking-table{
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+background:#1e293b;
+color:white;
+border-radius:10px;
+overflow:hidden
+}
+
+.ranking-table th{
+background:#3b82f6;
+padding:12px
+}
+
+.ranking-table td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #374151
+}
+
+.ranking-table tr:hover{
+background:#111827
+}
+
+/* ===== RANKING CONTROLS ===== */
+.ranking-controls{
+margin-top:30px;
+display:flex;
+align-items:center;
+gap:10px
+}
+
+.ranking-controls select{
+padding:8px 12px;
+border-radius:6px;
+border:none;
+background:#1e293b;
+color:white
+}
+
+/* ===== RANKING TABLE ===== */
+.ranking-table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+background:#1e293b;
+border-radius:10px;
+overflow:hidden
+}
+
+.ranking-table th{
+background:#3b82f6;
+padding:12px
+}
+
+.ranking-table td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #374151
+}
+
+.ranking-table tr:hover{
+background:#111827
+}
+
+/* ===== SKILL TAGS ===== */
+.skill-tag{
+display:inline-block;
+background:#3b82f6;
+color:white;
+padding:4px 8px;
+margin:2px;
+border-radius:6px;
+font-size:12px
+}
+
+/* ===== CANDIDATE TABLE ===== */
+#candidateTable{
+width:100%;
+border-collapse:collapse;
+margin-top:20px
+}
+#candidateTable th{
+background:#3b82f6;
+color:white;
+padding:10px
+}
+#candidateTable td{
+padding:10px;
+border-bottom:1px solid #ddd
+}
+
+/* ===== DELETE BUTTON ===== */
+
+.delete-btn{
+background:#ef4444;
+color:white;
+border:none;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+transition:all 0.3s ease;
+}
+
+.delete-btn:hover{
+background:#dc2626;
+transform:scale(1.05);
+}
+
+
+/* ===== DELETE ALL BUTTON ===== */
+
+.delete-all-btn{
+background:#b91c1c;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+margin-bottom:15px;
+transition:all 0.3s ease;
+}
+
+.delete-all-btn:hover{
+background:#7f1d1d;
+transform:scale(1.05);
+}
+
+
+/* ===== ACTION COLUMN CENTER ===== */
+
+#candidateTable td:last-child{
+text-align:center;
+}
+
+/* ===== RANKING TABLE ALIGNMENT ===== */
+.ranking-table thead th{
+text-align:center;
+}
+.ranking-table tbody td{
+text-align:left;
+}
